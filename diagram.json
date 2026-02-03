@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "author": "Antigravity",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht22",
+      "top": -120,
+      "left": 120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr501",
+      "id": "pir",
+      "top": -30,
+      "left": -150,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-mq135",
+      "id": "mq135",
+      "top": -120,
+      "left": -150,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-microsd-card",
+      "id": "sd",
+      "top": -120,
+      "left": 250,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ssd1306",
+      "id": "oled",
+      "top": -120,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_motion",
+      "top": 150,
+      "left": 60,
+      "attrs": {
+        "color": "blue",
+        "label": "MOTION"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_run",
+      "top": 150,
+      "left": 100,
+      "attrs": {
+        "color": "green",
+        "label": "RUN"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_fault",
+      "top": 150,
+      "left": 140,
+      "attrs": {
+        "color": "red",
+        "label": "FAULT"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_gas",
+      "top": 150,
+      "left": 180,
+      "attrs": {
+        "color": "red",
+        "label": "GAS"
+      }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay",
+      "top": 200,
+      "left": -100,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo",
+      "top": 200,
+      "left": 150,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "sd:VCC",
+      "esp:5V",
+      "red",
+      []
+    ],
+    [
+      "sd:GND",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "sd:CS",
+      "esp:5",
+      "green",
+      []
+    ],
+    [
+      "sd:SCK",
+      "esp:18",
+      "orange",
+      []
+    ],
+    [
+      "sd:MOSI",
+      "esp:23",
+      "blue",
+      []
+    ],
+    [
+      "sd:MISO",
+      "esp:19",
+      "yellow",
+      []
+    ],
+    [
+      "oled:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "oled:GND",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "oled:SDA",
+      "esp:21",
+      "green",
+      []
+    ],
+    [
+      "oled:SCL",
+      "esp:22",
+      "yellow",
+      []
+    ],
+    [
+      "dht22:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "dht22:GND",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "dht22:OUT",
+      "esp:4",
+      "white",
+      []
+    ],
+    [
+      "pir:VCC",
+      "esp:5V",
+      "red",
+      []
+    ],
+    [
+      "pir:GND",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "pir:OUT",
+      "esp:27",
+      "orange",
+      []
+    ],
+    [
+      "mq135:VCC",
+      "esp:5V",
+      "red",
+      []
+    ],
+    [
+      "mq135:GND",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "mq135:AO",
+      "esp:34",
+      "purple",
+      []
+    ],
+    [
+      "relay:VCC",
+      "esp:5V",
+      "red",
+      []
+    ],
+    [
+      "relay:GND",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "relay:IN",
+      "esp:25",
+      "brown",
+      []
+    ],
+    [
+      "servo:VCC",
+      "esp:5V",
+      "red",
+      []
+    ],
+    [
+      "servo:GND",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "servo:PWM",
+      "esp:26",
+      "orange",
+      []
+    ],
+    [
+      "led_motion:A",
+      "esp:33",
+      "blue",
+      []
+    ],
+    [
+      "led_motion:C",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "led_run:A",
+      "esp:32",
+      "green",
+      []
+    ],
+    [
+      "led_run:C",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "led_fault:A",
+      "esp:17",
+      "red",
+      []
+    ],
+    [
+      "led_fault:C",
+      "esp:GND",
+      "black",
+      []
+    ],
+    [
+      "led_gas:A",
+      "esp:16",
+      "red",
+      []
+    ],
+    [
+      "led_gas:C",
+      "esp:GND",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
